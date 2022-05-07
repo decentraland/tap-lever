@@ -3,7 +3,7 @@ from singer_sdk import typing as th
 schema = th.PropertiesList(
     th.Property("id", th.StringType),
     th.Property("text", th.StringType),
-    th.Property("createdAt", th.NumberType),
+    th.Property("createdAt", th.IntegerType),
     th.Property("updatedAt", th.StringType),
     th.Property("user", th.StringType),
     th.Property("owner", th.StringType),

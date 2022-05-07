@@ -9,7 +9,7 @@ schema = th.PropertiesList(
     th.Property("user", th.StringType),
     th.Property("name", th.StringType),
     th.Property("email", th.StringType),
-    th.Property("createdAt", th.NumberType),
+    th.Property("createdAt", th.IntegerType),
     th.Property("phone", th.StringType),
     th.Property("company", th.StringType),
     th.Property("links", th.StringType),

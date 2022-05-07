@@ -31,6 +31,6 @@ schema = th.PropertiesList(
     th.Property("user", th.StringType),
     th.Property("referrer", th.StringType),
     th.Property("stage", th.StringType),
-    th.Property("createdAt", th.NumberType),
+    th.Property("createdAt", th.IntegerType),
     th.Property("completedAt", th.StringType),
 ).to_dict()
