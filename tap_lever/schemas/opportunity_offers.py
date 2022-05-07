@@ -4,7 +4,7 @@ schema = th.PropertiesList(
     th.Property("id", th.StringType),
     th.Property("opportunity_id", th.StringType),
     th.Property("opportunityId", th.StringType),
-    th.Property("createdAt", th.StringType),
+    th.Property("createdAt", th.NumberType),
     th.Property("creator", th.StringType),
     th.Property("status", th.StringType),
     th.Property(

@@ -32,7 +32,7 @@ schema = th.PropertiesList(
     th.Property("owner", th.StringType),
     th.Property("followers", th.ArrayType(th.StringType)),
     th.Property("applications", th.ArrayType(th.StringType)),
-    th.Property("createdAt", th.StringType),
+    th.Property("createdAt", th.NumberType),
     th.Property("lastInteractionAt", th.StringType),
     th.Property("lastAdvancedAt", th.StringType),
     th.Property("snoozedUntil", th.StringType),

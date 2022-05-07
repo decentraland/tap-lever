@@ -5,7 +5,7 @@ schema = th.PropertiesList(
     th.Property("requisitionCode", th.StringType),
     th.Property("name", th.StringType),
     th.Property("backfill", th.BooleanType),
-    th.Property("createdAt", th.StringType),
+    th.Property("createdAt", th.NumberType),
     th.Property("creator", th.StringType),
     th.Property("headcountHired", th.IntegerType),
     th.Property("headcountTotal", th.StringType),
