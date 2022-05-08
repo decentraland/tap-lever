@@ -2,7 +2,6 @@ from singer_sdk import typing as th
 
 schema = th.PropertiesList(
     th.Property("id", th.StringType),
-    th.Property("opportunity_id", th.StringType),
     th.Property("opportunityId", th.StringType),
     th.Property("createdAt", th.IntegerType),
     th.Property("creator", th.StringType),
@@ -23,32 +22,32 @@ schema = th.PropertiesList(
             th.Property("role", th.StringType),
             th.Property("name", th.StringType),
             th.Property("email", th.StringType),
-            th.Property("firstOpenedAt", th.StringType),
-            th.Property("lastOpenedAt", th.StringType),
-            th.Property("signedAt", th.StringType),
+            th.Property("firstOpenedAt", th.IntegerType),
+            th.Property("lastOpenedAt", th.IntegerType),
+            th.Property("signedAt", th.IntegerType),
             th.Property("signed", th.BooleanType),
             th.Property(
                 "candidate",
                 th.ObjectType(
                     th.Property("email", th.StringType),
-                    th.Property("lastOpenedAt", th.StringType),
+                    th.Property("lastOpenedAt", th.IntegerType),
                     th.Property("role", th.StringType),
-                    th.Property("signedAt", th.StringType),
-                    th.Property("firstOpenedAt", th.StringType),
+                    th.Property("signedAt", th.IntegerType),
+                    th.Property("firstOpenedAt", th.IntegerType),
                     th.Property("signed", th.BooleanType),
                     th.Property("name", th.StringType),
                 ),
             ),
         ),
     ),
-    th.Property("approvedAt", th.StringType),
-    th.Property("sentAt", th.StringType),
+    th.Property("approvedAt", th.IntegerType),
+    th.Property("sentAt", th.IntegerType),
     th.Property("approved", th.BooleanType),
     th.Property("posting", th.StringType),
     th.Property(
         "sentDocument",
         th.ObjectType(
-            th.Property("uploadedAt", th.StringType),
+            th.Property("uploadedAt", th.IntegerType),
             th.Property("downloadUrl", th.StringType),
             th.Property("fileName", th.StringType),
         ),
@@ -56,7 +55,7 @@ schema = th.PropertiesList(
     th.Property(
         "signedDocument",
         th.ObjectType(
-            th.Property("uploadedAt", th.StringType),
+            th.Property("uploadedAt", th.IntegerType),
             th.Property("downloadUrl", th.StringType),
             th.Property("fileName", th.StringType),
         ),

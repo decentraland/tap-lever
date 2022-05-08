@@ -6,7 +6,7 @@ schema = th.PropertiesList(
     th.Property("username", th.StringType),
     th.Property("email", th.StringType),
     th.Property("createdAt", th.IntegerType),
-    th.Property("deactivatedAt", th.StringType),
+    th.Property("deactivatedAt", th.IntegerType),
     th.Property("accessRole", th.StringType),
     th.Property("photo", th.StringType),
     th.Property("externalDirectoryId", th.StringType),

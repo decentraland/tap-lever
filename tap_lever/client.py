@@ -1,8 +1,9 @@
 """REST client handling, including LeverStream base class."""
 
-import requests
+import requests, json
 from pathlib import Path
 from typing import Any, Dict, Optional, Union, List, Iterable
+from urllib.parse import unquote
 
 from memoization import cached
 
@@ -28,22 +29,16 @@ class LeverStream(RESTStream):
             self, username=self.config["api_key"], password=""
         )
 
-    @property
-    def http_headers(self) -> dict:
-        """Return the http headers needed."""
-        headers = {"Content-Type": "application/json"}
-        if "user_agent" in self.config:
-            headers["User-Agent"] = self.config.get("user_agent")
-        return headers
-
     def get_url_params(
         self, context: Optional[dict], next_page_token: Optional[Any]
     ) -> Dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
         if next_page_token:
-            params["offset"] = next_page_token
-        # if self.replication_key:
-        #     params["sort"] = "asc"
-        #     params["order_by"] = self.replication_key
+            offsetVal = json.loads(unquote(next_page_token))
+            params["updated_at_start"] = offsetVal[0]
+        elif self.replication_key:
+            filterDate = self.get_starting_timestamp(context)
+            timestampDate = int(filterDate.timestamp() * 1000) # Milliseconds
+            params["updated_at_start"] = timestampDate
         return params

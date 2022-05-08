@@ -2,7 +2,7 @@ from singer_sdk import typing as th
 
 schema = th.PropertiesList(
     th.Property("id", th.StringType),
-    th.Property("opportunity_id", th.StringType),
+    th.Property("opportunityId", th.StringType),
     th.Property("type", th.StringType),
     th.Property("text", th.StringType),
     th.Property("instructions", th.StringType),
@@ -32,5 +32,5 @@ schema = th.PropertiesList(
     th.Property("referrer", th.StringType),
     th.Property("stage", th.StringType),
     th.Property("createdAt", th.IntegerType),
-    th.Property("completedAt", th.StringType),
+    th.Property("completedAt", th.IntegerType),
 ).to_dict()

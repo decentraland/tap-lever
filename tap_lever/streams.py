@@ -1,5 +1,6 @@
 """Stream type classes for tap-lever."""
 
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Optional, Union, List, Iterable
 
@@ -36,13 +37,18 @@ class OpportunitiesStream(LeverStream):
     name = "opportunities"
     path = "/opportunities"
     primary_keys = ["id"]
-    replication_key = None
+    replication_key = "updatedAt"
+    replication_method = "INCREMENTAL"
     schema = schemas.opportunities
 
     def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
         context = {"opportunity_id": record["id"]}
         return context
 
+    
+    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+        row["updatedAt"] = datetime.fromtimestamp(row["updatedAt"]/1000.0)
+        return row
 
 class PostingsStream(LeverStream):
     """
@@ -51,9 +57,13 @@ class PostingsStream(LeverStream):
     name = "postings"
     path = "/postings"
     primary_keys = ["id"]
-    replication_key = None
+    replication_key = "updatedAt"
+    replication_method = "INCREMENTAL"
     schema = schemas.postings
-
+    
+    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+        row["updatedAt"] = datetime.fromtimestamp(row["updatedAt"]/1000.0)
+        return row
 
 class OpportunityApplicationsStream(LeverStream):
     """
