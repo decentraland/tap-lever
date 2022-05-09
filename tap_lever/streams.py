@@ -81,6 +81,7 @@ class OpportunityApplicationsStream(LeverStream):
     path = "/opportunities/{opportunity_id}/applications"
     primary_keys = ["id"]
     parent_stream_type = OpportunitiesStream
+    state_partitioning_keys = []
     ignore_parent_replication_keys = False
     schema = schemas.opportunity_applications
 
@@ -93,6 +94,7 @@ class OpportunityOffersStream(LeverStream):
     path = "/opportunities/{opportunity_id}/offers"
     primary_keys = ["id"]
     parent_stream_type = OpportunitiesStream
+    state_partitioning_keys = []
     ignore_parent_replication_keys = False
     schema = schemas.opportunity_offers
 
@@ -105,6 +107,7 @@ class OpportunityReferralsStream(LeverStream):
     path = "/opportunities/{opportunity_id}/referrals"
     primary_keys = ["id"]
     parent_stream_type = OpportunitiesStream
+    state_partitioning_keys = []
     ignore_parent_replication_keys = False
     schema = schemas.opportunity_referrals
 
@@ -116,6 +119,7 @@ class OpportunityResumesStream(LeverStream):
     path = "/opportunities/{opportunity_id}/resumes"
     primary_keys = ["id"]
     parent_stream_type = OpportunitiesStream
+    state_partitioning_keys = []
     ignore_parent_replication_keys = False
     schema = schemas.opportunity_resumes
 
