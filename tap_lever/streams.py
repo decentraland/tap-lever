@@ -139,7 +139,7 @@ class SourcesStream(LeverStream):
     """
     name = "sources"
     path = "/sources"
-    primary_keys = ["id"]
+    primary_keys = ["text"]
     replication_key = None
     schema = schemas.sources
 
